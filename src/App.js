@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from "react";
+import React, { useState, useRef } from "react";
 import produce from "immer";
 import "./App.css";
 import Grid from "./components/Grid";
@@ -17,7 +17,7 @@ function App() {
   const runningRef = useRef();
   runningRef.current = running;
 
-  const runSimulation = useCallback(() => {
+  const runSimulation = () => {
     if (!runningRef.current) {
       return;
     }
@@ -51,7 +51,7 @@ function App() {
     });
 
     setTimeout(runSimulation, interval);
-  }, []);
+  };
 
   const handleStartBtn = () => {
     setRunning(!running);
