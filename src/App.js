@@ -22,26 +22,28 @@ function App() {
       return;
     }
 
-    setGrid((g) => {
-      return produce(g, (gridCopy) => {
+    setGrid((originGrid) => {
+      return produce(originGrid, (draftGrid) => {
         for (let i = 0; i < size; i++) {
-          for (let k = 0; k < size; k++) {
+          for (let j = 0; j < size; j++) {
             let neighbours = 0;
+
+            // check every possible neighbour cell
             operations.forEach(([x, y]) => {
               const newI = i + x;
-              const newK = k + y;
+              const newJ = j + y;
 
-              // check boundaries reach
-              if (newI >= 0 && newI < size && newK >= 0 && newK < size) {
-                neighbours += g[newI][newK];
+              // check grid boundaries reach
+              if (newI >= 0 && newI < size && newJ >= 0 && newJ < size) {
+                neighbours += originGrid[newI][newJ];
               }
             });
 
             // check neighbours conditions (alive / dead (1 / 0))
             if (neighbours < 2 || neighbours > 3) {
-              gridCopy[i][k] = 0;
-            } else if (g[i][k] === 0 && neighbours === 3) {
-              gridCopy[i][k] = 1;
+              draftGrid[i][j] = 0;
+            } else if (originGrid[i][j] === 0 && neighbours === 3) {
+              draftGrid[i][j] = 1;
             }
           }
         }
@@ -77,7 +79,7 @@ function App() {
             </button>
           </div>
         </div>
-        <Grid grid={grid} cols={size} gridSetter={setGrid} />
+        <Grid grid={grid} gridSetter={setGrid} />
       </div>
     </>
   );

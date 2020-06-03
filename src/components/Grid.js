@@ -1,13 +1,14 @@
 import React from "react";
 import produce from "immer";
+import { size } from "../config/config";
 
-const Grid = ({ grid, cols, gridSetter }) => {
+const Grid = ({ grid, gridSetter }) => {
   return (
     <div
       className="grid"
       style={{
         display: "grid",
-        gridTemplateColumns: `repeat(${cols}, 20px)`,
+        gridTemplateColumns: `repeat(${size}, 20px)`,
       }}
     >
       {grid.map((rows, i) =>
