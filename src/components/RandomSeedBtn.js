@@ -5,7 +5,7 @@ const RandomSeedBtn = ({ setter, generator }) => {
     <button
       className="randomBtn"
       onClick={() => {
-        setter(generator());
+        setter(generator);
       }}
     >
       Random seed

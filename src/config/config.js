@@ -1,4 +1,4 @@
-const size = 25;
+const size = 30;
 
 const operations = [
   [0, 1],
@@ -13,4 +13,7 @@ const operations = [
 
 const interval = 100;
 
-export { size, operations, interval };
+// lower ratio === more alive cells at the beginning
+const randomSeedRatio = 0.8;
+
+export { size, operations, interval, randomSeedRatio };

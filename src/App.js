@@ -5,26 +5,11 @@ import Grid from "./components/Grid";
 import StartBtn from "./components/StartBtn";
 import RandomSeedBtn from "./components/RandomSeedBtn";
 import { interval, operations, size } from "./config/config";
-
-const generateEmptyGrid = () => {
-  const rows = [];
-  for (let i = 0; i < size; i++) {
-    rows.push(Array.from(Array(size), () => 0));
-  }
-  return rows;
-};
-
-const generateRandomLife = () => {
-  const rows = [];
-  for (let i = 0; i < size; i++) {
-    rows.push(Array.from(Array(size), () => (Math.random() > 0.8 ? 1 : 0)));
-  }
-  return rows;
-};
+import { generateGrid, generateRandomLife } from "./utils/utils";
 
 function App() {
   const [grid, setGrid] = useState(() => {
-    return generateEmptyGrid(size);
+    return generateGrid();
   });
 
   const [running, setRunning] = useState(false);
@@ -85,7 +70,7 @@ function App() {
               className="clearBtn"
               onClick={() => {
                 setRunning(false);
-                setGrid(generateEmptyGrid());
+                setGrid(generateGrid());
               }}
             >
               Clear
