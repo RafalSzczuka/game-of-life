@@ -17,12 +17,57 @@
   background-color: lightgray;
 }
 
-.launchBtn {
+button {
+  border: 1px solid gray;
+  cursor: pointer;
+  border-radius: 6px;
+  outline: none;
+  margin: 0 20px 20px;
+  font-size: 15px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  padding: 20px;
+  background-color: #eee;
+  border-radius: 10px;
+  box-shadow: 5px 8px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.startBtn {
   width: 120px;
   height: 40px;
   font-size: 18px;
-  text-transform: uppercase;
   font-weight: bold;
+  background-color: rgb(80, 200, 80);
+}
+
+.startBtn:hover {
+  background-color: rgb(52, 221, 52);
+}
+
+.active {
+  background-color: rgb(230, 200, 67);
+}
+
+.startBtn.active:hover {
+  background-color: hsl(49, 90%, 58%);
+}
+
+.secondary button {
+  color: white;
+  padding: 6px;
+  background-color: rgb(59, 108, 243);
+}
+
+.secondary button:hover {
+  background-color: hsl(224, 92%, 52%);
 }
 
 .grid {
